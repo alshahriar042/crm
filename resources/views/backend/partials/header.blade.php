@@ -2,7 +2,7 @@
     <div class="app-header__logo">
         {{-- <div class="logo-src" style="width:97px; background:url({{ asset('assets/images/logo-inverse.png') }});"></div> --}}
         <div class="logo-src" style="font-style: oblique;">
-            <b>Rupayan City Uttara</b>
+            <b>Customer Relation Management</b>
         </div>
         <div class="header__pane ml-auto">
             <div>
@@ -43,7 +43,7 @@
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     class="p-0 btn">
-                                    <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg"
+                                    <img width="42" class="rounded-circle" src="assets/images/avatars/1.png"
                                         alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
@@ -70,10 +70,10 @@
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
                                 {{-- Alina Mclourd --}}
-                                {{ auth()->guard('appUser')->user()->name }}
+                                {{ auth()->user()->name }}
                             </div>
                             <div class="widget-subheading">
-                                VP People Manager
+                                 Software Enginner
                             </div>
                         </div>
                     </div>
