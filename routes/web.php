@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackEnd\LoginController;
 use App\Http\Controllers\BackEnd\DashboardController;
 use App\Http\Controllers\Backend\RegistrationController;
+use App\Http\Controllers\LeadManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,7 @@ Route::prefix('apps')->group(function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard',[DashboardController::class,'index'])->name('apps.dashboard');
+    Route::post('/lead-list',[LeadManagementController::class,'index'])->name('lead.list');
+    Route::get('/lead-create',[LeadManagementController::class,'create'])->name('lead.create');
+    Route::post('/lead-store',[LeadManagementController::class,'store'])->name('lead.store');
 });
