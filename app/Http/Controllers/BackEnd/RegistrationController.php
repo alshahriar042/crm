@@ -32,6 +32,6 @@ class RegistrationController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect()->back();
+        return redirect()->route('apps.login');
     }
 }

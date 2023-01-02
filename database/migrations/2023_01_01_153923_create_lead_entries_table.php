@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('lead_entries', function (Blueprint $table) {
             $table->id();
             $table->string('fname');
-            $table->string('lame')->nullable();
+            $table->string('lname')->nullable();
             $table->string('phone');
             $table->string('address')->nullable();
             $table->string('district')->nullable();

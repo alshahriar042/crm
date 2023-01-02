@@ -9,7 +9,9 @@ class LeadManagementController extends Controller
 {
     public function index()
     {
-        # code..
+       $leads=LeadEntry::orderBy('id', 'asc')->get();
+    //    dd($leads);
+        return view('backend.leads.index',compact('leads'));
     }
 
     public function create(){

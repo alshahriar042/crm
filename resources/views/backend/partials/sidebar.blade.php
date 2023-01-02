@@ -56,6 +56,13 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="{{ route('lead.list') }}">
+                                <i class="metismenu-icon"></i>
+                                Lead List
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
              {{--   <li>
