@@ -48,4 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/lead-list',[LeadManagementController::class,'index'])->name('lead.list');
     Route::get('/lead-create',[LeadManagementController::class,'create'])->name('lead.create');
     Route::post('/lead-store',[LeadManagementController::class,'store'])->name('lead.store');
+    Route::get('lead-edit/{id}',[LeadManagementController::class,'edit'])->name('lead.edit');
+    Route::post('/lead-update/{id}',[LeadManagementController::class,'update'])->name('lead.update');
+    Route::get('/lead-delete/{id}',[LeadManagementController::class,'destroy'])->name('lead.delete');
 });

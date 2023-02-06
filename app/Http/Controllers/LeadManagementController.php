@@ -44,4 +44,43 @@ class LeadManagementController extends Controller
     }
 
 
+    public function edit($id)
+    {
+       $lead =LeadEntry::where('id',$id)->first();
+       return view('backend.leads.edit',compact('lead'));
+    }
+
+    public function update(Request $request,$id){
+        $request->validate([
+            'fname' =>'required|string|max:255',
+            'lname' =>'required|string|max:255',
+            'phone' =>'required',
+            'description' =>'required',
+
+        ]);
+
+         $lead= LeadEntry::find($id);
+
+        $lead->update([
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'district' => $request->district,
+            'postCode' => $request->postcode,
+            'details' => $request->description,
+        ]);
+
+        return redirect()->route('lead.list');
+}
+
+public function destroy($id)
+{
+    # code...
+    $lead= LeadEntry::find($id)->delete();
+    return redirect()->route('lead.list');
+
+}
+
+
 }

@@ -26,18 +26,23 @@
                                 <th>#</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
-                                <th>Username</th>
+                                <th>Phone</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             @foreach ($leads as $lead)
-                            dd($loop);
+                            {{-- dd($loop); --}}
                                 <tr>
                                     <th scope="row">{{ $loop->iteration	}}</th>
                                     <td>{{ $lead->fname }}</td>
                                     <td>{{ $lead->lname }}</td>
                                     <td>{{ $lead->phone }}</td>
+                                    <td> <a href="{{ route('lead.edit',$lead->id) }}" class="btn  btn-success rounded-0"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ route('lead.delete',[$lead->id]) }}" onclick="return confirm('Do you want to delete lead ?')" class="btn btn-danger text-light rounded-0"><i class="fa fa-trash"></i></a>
+
+                                    </td>
 
                                 </tr>
                             @endforeach
