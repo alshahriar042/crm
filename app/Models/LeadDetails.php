@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LeadEntry extends Model
+class LeadDetails extends Model
 {
     use HasFactory;
-
     protected $guarded=['id'];
 
-    public function leadDetails()
+    public function lead()
     {
-        return $this->hasMany(LeadDetails::class);
+        return $this->belongsTo(LeadEntry::class);
     }
 }

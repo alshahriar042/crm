@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackEnd\LoginController;
 use App\Http\Controllers\BackEnd\DashboardController;
 use App\Http\Controllers\Backend\RegistrationController;
+use App\Http\Controllers\LeadDetailsController;
 use App\Http\Controllers\LeadManagementController;
 
 /*
@@ -51,4 +52,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('lead-edit/{id}',[LeadManagementController::class,'edit'])->name('lead.edit');
     Route::post('/lead-update/{id}',[LeadManagementController::class,'update'])->name('lead.update');
     Route::get('/lead-delete/{id}',[LeadManagementController::class,'destroy'])->name('lead.delete');
+
+    Route::post('/lead-details-store',[LeadDetailsController::class,'store'])->name('leadDetails.store');
+
+
 });
