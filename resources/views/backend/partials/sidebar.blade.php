@@ -65,6 +65,31 @@
 
                     </ul>
                 </li>
+
+
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-diamond"></i>
+                        Message
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ route('message.create') }}">
+                                <i class="metismenu-icon"></i>
+                                Message Send
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('message.list') }}">
+                                <i class="metismenu-icon"></i>
+                                Message List
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
              {{--   <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-car"></i>

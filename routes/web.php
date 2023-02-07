@@ -7,6 +7,7 @@ use App\Http\Controllers\BackEnd\DashboardController;
 use App\Http\Controllers\Backend\RegistrationController;
 use App\Http\Controllers\LeadDetailsController;
 use App\Http\Controllers\LeadManagementController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/lead-delete/{id}',[LeadManagementController::class,'destroy'])->name('lead.delete');
 
     Route::post('/lead-details-store',[LeadDetailsController::class,'store'])->name('leadDetails.store');
+
+    Route::get('/message-list',[MessageController::class,'index'])->name('message.list');
+    Route::get('/message-create',[MessageController::class,'create'])->name('message.create');
+
 
 
 });
