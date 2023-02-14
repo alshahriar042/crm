@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
+use App\Models\LeadEntry;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,14 +11,34 @@ use Illuminate\Http\Request;
 class MessageController extends Controller
 {
  public function index(){
-    $message = Message::all();
-      return view('backend.message.index',compact('message'));
+    $messages = Message::all();
+      return view('backend.message.index',compact('messages'));
  }
 
 
  public function create(){
+    // $users = User::all();
 
-    $users = User::all();
-    return view('backend.message.create',compact('users'));
+    $leadsUser = LeadEntry::all();
+    return view('backend.message.create',compact('leadsUser'));
  }
+
+ public function send(Request $request){
+    //   dd($request->all());
+
+      Helper::sendSms($request->phone, $request->description);
+
+      Message::create([
+        'name' => LeadEntry::where('phone',$request->phone)->first()->fname,
+        'phone'=>$request->phone,
+        'message' =>$request->description,
+      ]);
+
+      notify()->success("PDF create successfully.", "Success");
+      return back();
+
+
+ }
+
+
 }

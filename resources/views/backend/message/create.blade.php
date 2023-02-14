@@ -22,15 +22,15 @@
             <div class="main-card mb-3 card">
     <div class="card-body">
         <h5 class="card-title">Message</h5>
-        <form class="needs-validation" method="post" action="{{ route('lead.store') }}" novalidate>
+        <form class="needs-validation" method="post" action="{{ route('message.send') }}" novalidate>
             @csrf
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom01">Customer </label>
                  <select name="phone" id="" class="form-control">
-                    @foreach ($users as $user)
-                    <option disabled>Select Customer</option>
-                    <option value="{{ $user->phone }}">{{ $user->name}}</option>
+                     <option disabled>Select Customer</option>
+                    @foreach ($leadsUser as $user)
+                    <option value="{{ $user->phone }}">{{ $user->fname}} - {{ $user->phone }}  </option>
                     @endforeach
 
                  </select>
@@ -43,8 +43,6 @@
                 <div class="col-md-12 mb-3">
                     <label for="validationCustom03">Message</label>
                     <textarea style="width: 100%;" class="summernote" class="form-control" rows="5" name="description"></textarea>
-
-
 
             </div>
 

@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/message-list',[MessageController::class,'index'])->name('message.list');
     Route::get('/message-create',[MessageController::class,'create'])->name('message.create');
+    Route::post('/message-send',[MessageController::class,'send'])->name('message.send');
 
 
 

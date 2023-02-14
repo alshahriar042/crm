@@ -13,6 +13,7 @@
 
     <link href="{{ asset('main.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 </head>
 
@@ -33,12 +34,17 @@
     </div>
 
     <script type="text/javascript" src="{{ asset('assets/scripts/main.js') }}"></script>
+    <script src="{{ asset('js/iziToast.js') }}"></script>
+
+
 
     <script type="text/javascript">
         $(document).ready(function() {
-        $('.summernote').summernote();
+            $('.summernote').summernote();
         });
-    </script>
+
+        </script>
+        @include('vendor.lara-izitoast.toast')
 </body>
 
 </html>
