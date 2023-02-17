@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackEnd\LoginController;
 use App\Http\Controllers\BackEnd\DashboardController;
 use App\Http\Controllers\Backend\RegistrationController;
+use App\Http\Controllers\FollowUpDetailsController;
 use App\Http\Controllers\LeadDetailsController;
 use App\Http\Controllers\LeadManagementController;
 use App\Http\Controllers\MessageController;
@@ -59,6 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/message-list',[MessageController::class,'index'])->name('message.list');
     Route::get('/message-create',[MessageController::class,'create'])->name('message.create');
     Route::post('/message-send',[MessageController::class,'send'])->name('message.send');
+    Route::get('/followup-details',[FollowUpDetailsController::class,'followupDetails'])->name('followup.details');
 
 
 

@@ -27,14 +27,14 @@
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom01">First name</label>
-                    <input type="text" class="form-control" id="validationCustom01" name="fname" placeholder="First name" value="Mark" required>
+                    <input type="text" class="form-control" id="validationCustom01" name="fname" placeholder="First name"  required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom02">Last name</label>
-                    <input type="text" class="form-control" id="validationCustom02" name="lname" placeholder="Last name" value="Otto" required>
+                    <input type="text" class="form-control" id="validationCustom02" name="lname" placeholder="Last name"  required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>

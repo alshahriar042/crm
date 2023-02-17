@@ -13,6 +13,6 @@ class LeadEntry extends Model
 
     public function leadDetails()
     {
-        return $this->hasMany(LeadDetails::class);
+        return $this->hasMany(LeadDetails::class,'lead_id','id');
     }
 }

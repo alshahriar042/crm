@@ -12,6 +12,6 @@ class LeadDetails extends Model
 
     public function lead()
     {
-        return $this->belongsTo(LeadEntry::class);
+        return $this->belongsTo(LeadEntry::class,'id','lead_id');
     }
 }
