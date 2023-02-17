@@ -39,6 +39,7 @@ class LeadManagementController extends Controller
                 'details' => $request->description,
             ]);
 
+            notify()->success("Lead Created successfully.", "Success");
 
             return redirect()->back();
     }
@@ -70,6 +71,7 @@ class LeadManagementController extends Controller
             'postCode' => $request->postcode,
             'details' => $request->description,
         ]);
+        notify()->success("Lead Edited successfully.", "Success");
 
         return redirect()->route('lead.list');
 }
@@ -78,6 +80,7 @@ public function destroy($id)
 {
     # code...
     $lead= LeadEntry::find($id)->delete();
+    notify()->success("Lead deleted successfully.", "Success");
     return redirect()->route('lead.list');
 
 }

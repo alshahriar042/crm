@@ -34,7 +34,7 @@ class MessageController extends Controller
         'message' =>$request->description,
       ]);
 
-      notify()->success("PDF create successfully.", "Success");
+      notify()->success("SMS send successfully.", "Success");
       return back();
 
 
