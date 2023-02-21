@@ -275,7 +275,7 @@
                     <i class="lnr-picture text-danger">
                     </i>
                 </div>
-                <div>Lead Entry
+                <div>Chat
                 </div>
             </div>
             <div class="page-title-actions">
@@ -288,7 +288,7 @@
     </div>
     <div class="main-card mb-3 card">
         <div class="card-body">
-            <h5 class="card-title">Message</h5>
+            <h5 class="card-title">Chat</h5>
 
 
             <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -306,7 +306,11 @@
                                                     alt="avatar">
                                             </a>
                                             <div class="chat-about">
-                                                <h6 class="m-b-0">Aiden Chavez
+                                                <h6 class="m-b-0">
+                                                    @php
+                                                        $name = App\Models\User::where('id', $recipient->id)->first()->name;
+                                                    @endphp
+                                                    {{ $name }}
                                                 </h6>
                                             </div>
                                         </div>
@@ -315,15 +319,19 @@
                                 </div>
                                 <div class="chat-history">
                                     <ul class="m-b-0">
-                                        @foreach ($message as $data )
-                                        <li class="clearfix">
-                                            <div class="message-data text-right">
-                                                <span class="message-data-time">{{ $data->created_at }}</span>
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                                                    alt="avatar">
-                                            </div>
-                                            <div class="message other-message float-right"> {{ $data->body }} </div>
-                                        </li>
+                                        @foreach ($message as $data)
+                                            <li class="clearfix">
+                                                <div @if (Auth::id() == $data->recipient) class="message-data text-left">
+                                                @elseif(Auth::id() != $data->recipient)
+                                                class="message-data text-right"> @endif
+                                                    <span class="message-data-time"> {{ $data->created_at }} </span>
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                                                        alt="avatar">
+                                                </div>
+                                                <div @if (Auth::id() == $data->recipient) class="message other-message float-left">                                                @elseif(Auth::id() != $data->recipient)
+                                            class="message other-message float-right"> @endif
+                                                    {{ $data->body }} </div>
+                                            </li>
                                         @endforeach
 
                                         {{-- <li class="clearfix">
