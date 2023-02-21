@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('lead_entries', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
             $table->string('fname');
             $table->string('lname')->nullable();
             $table->string('phone');

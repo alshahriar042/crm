@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\LeadEntry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LeadManagementController extends Controller
 {
     public function index()
     {
-       $leads=LeadEntry::orderBy('id', 'asc')->get();
+       $leads=LeadEntry::where('user_id',Auth::id())->orderBy('id', 'asc')->get();
     //    dd($leads);
         return view('backend.leads.index',compact('leads'));
     }
@@ -30,6 +31,7 @@ class LeadManagementController extends Controller
 
 
             LeadEntry::create([
+                'user_id' =>Auth::id(),
                 'fname' => $request->fname,
                 'lname' => $request->lname,
                 'phone' => $request->phone,
@@ -63,6 +65,7 @@ class LeadManagementController extends Controller
          $lead= LeadEntry::find($id);
 
         $lead->update([
+
             'fname' => $request->fname,
             'lname' => $request->lname,
             'phone' => $request->phone,

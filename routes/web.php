@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackEnd\LoginController;
 use App\Http\Controllers\BackEnd\DashboardController;
 use App\Http\Controllers\Backend\RegistrationController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FollowUpDetailsController;
 use App\Http\Controllers\LeadDetailsController;
 use App\Http\Controllers\LeadManagementController;
@@ -61,6 +62,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/message-create',[MessageController::class,'create'])->name('message.create');
     Route::post('/message-send',[MessageController::class,'send'])->name('message.send');
     Route::get('/followup-details',[FollowUpDetailsController::class,'followupDetails'])->name('followup.details');
+    Route::get('/user-list',[ChatController::class,'userlist'])->name('chat.index');
+    Route::get('/chat/{recipient}',[ChatController::class,'create'])->name('chat');
+    Route::post('/chat-store',[ChatController::class,'store'])->name('chat.store');
 
 
 

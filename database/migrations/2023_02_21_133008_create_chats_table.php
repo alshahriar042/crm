@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->string('name')->nullable();
-            $table->string('phone');
-            $table->string('email')->nullable();
-            $table->longText('message');
+            $table->bigInteger('sender');
+            $table->bigInteger('recipient');
+            $table->text('body');
             $table->timestamps();
+
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('chats');
     }
 };
