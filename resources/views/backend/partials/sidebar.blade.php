@@ -3,8 +3,7 @@
         <div class="logo-src"></div>
         <div class="header__pane ml-auto">
             <div>
-                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                    data-class="closed-sidebar">
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
                     </span>
@@ -23,8 +22,7 @@
     </div>
     <div class="app-header__menu">
         <span>
-            <button type="button"
-                class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                 <span class="btn-icon-wrapper">
                     <i class="fa fa-ellipsis-v fa-w-6"></i>
                 </span>
@@ -34,103 +32,118 @@
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                <li class="app-sidebar__heading">Dashboards</li>
-                <li>
-                    <a href="{{ route('apps.dashboard') }}" class="mm-active">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
-                        Dashboard
-                    </a>
-                </li>
-                 <li class="app-sidebar__heading">Lead Management </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-diamond"></i>
-                        Leads
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="{{ route('lead.create') }}">
-                                <i class="metismenu-icon"></i>
-                                Lead Entry
-                            </a>
-                        </li>
 
-                        <li>
-                            <a href="{{ route('lead.list') }}">
-                                <i class="metismenu-icon"></i>
-                                Lead List
-                            </a>
-                        </li>
+                @if (Auth::user()->type == null)
+                    <li class="app-sidebar__heading">Dashboards</li>
+                    <li>
+                        <a href="{{ route('apps.dashboard') }}" class="mm-active">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="app-sidebar__heading">Lead Management </li>
+                    <li>
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-diamond"></i>
+                            Leads
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('lead.create') }}">
+                                    <i class="metismenu-icon"></i>
+                                    Lead Entry
+                                </a>
+                            </li>
 
-                    </ul>
-                </li>
+                            <li>
+                                <a href="{{ route('lead.list') }}">
+                                    <i class="metismenu-icon"></i>
+                                    Lead List
+                                </a>
+                            </li>
 
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-diamond"></i>
+                            Message
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('message.create') }}">
+                                    <i class="metismenu-icon"></i>
+                                    Message Send
+                                </a>
+                            </li>
 
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-diamond"></i>
-                        Message
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="{{ route('message.create') }}">
-                                <i class="metismenu-icon"></i>
-                                Message Send
-                            </a>
-                        </li>
+                            <li>
+                                <a href="{{ route('message.list') }}">
+                                    <i class="metismenu-icon"></i>
+                                    Message List
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="{{ route('message.list') }}">
-                                <i class="metismenu-icon"></i>
-                                Message List
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-
-
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-diamond"></i>
-                        Lead FollowUp
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="{{ route('followup.details') }}">
-                                <i class="metismenu-icon"></i>
-                                 Follow Up Details
-                            </a>
-                        </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-diamond"></i>
+                            Lead FollowUp
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('followup.details') }}">
+                                    <i class="metismenu-icon"></i>
+                                    Follow Up Details
+                                </a>
+                            </li>
 
 
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
 
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-diamond"></i>
-                               Chat
-                   <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="{{ route('chat.index') }}">
-                                <i class="metismenu-icon"></i>
-                                User List
-                            </a>
-                        </li>
-
-
-                    </ul>
-                </li>
+                    <li>
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-diamond"></i>
+                            Chat
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('chat.index') }}">
+                                    <i class="metismenu-icon"></i>
+                                    User List
+                                </a>
+                            </li>
 
 
-             {{--   <li>
+                        </ul>
+                    </li>
+                @else
+                    <li>
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-diamond"></i>
+                            Chat
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('chat.index') }}">
+                                    <i class="metismenu-icon"></i>
+                                    User List
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                @endif
+
+                {{--   <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-car"></i>
                         Components

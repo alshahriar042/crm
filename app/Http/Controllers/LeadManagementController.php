@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\LeadEntry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LeadManagementController extends Controller
 {
@@ -16,6 +18,8 @@ class LeadManagementController extends Controller
     }
 
     public function create(){
+
+        // return Auth::user()->type;
         return view('backend.leads.create');
     }
 
@@ -35,11 +39,21 @@ class LeadManagementController extends Controller
                 'fname' => $request->fname,
                 'lname' => $request->lname,
                 'phone' => $request->phone,
+                'email' => $request->email,
                 'address' => $request->address,
                 'district' => $request->district,
                 'postCode' => $request->postcode,
                 'details' => $request->description,
             ]);
+
+            User::create([
+                    'name' => $request->fname . $request->lname,
+                    'email' => $request->email,
+                    'password' => Hash::make('123456'),
+                    'type' => 'cus',
+                ]);
+
+
 
             notify()->success("Lead Created successfully.", "Success");
 
@@ -69,6 +83,7 @@ class LeadManagementController extends Controller
             'fname' => $request->fname,
             'lname' => $request->lname,
             'phone' => $request->phone,
+            'email' => $request->email,
             'address' => $request->address,
             'district' => $request->district,
             'postCode' => $request->postcode,

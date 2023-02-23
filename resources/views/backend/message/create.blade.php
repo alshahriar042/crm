@@ -8,7 +8,7 @@
                 <i class="lnr-picture text-danger">
                 </i>
             </div>
-            <div>Lead Entry
+            <div>Message
             </div>
         </div>
         <div class="page-title-actions">

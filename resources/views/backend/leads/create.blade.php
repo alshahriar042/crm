@@ -42,9 +42,6 @@
                 <div class="col-md-4 mb-3">
                     <label for="validationCustomUsername">Phone</label>
                     <div class="input-group">
-                        {{-- <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        </div> --}}
                         <input type="text" class="form-control" id="" name="phone" placeholder="Phone" aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please Enter a phone Number.
@@ -53,13 +50,22 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-3 mb-3">
                     <label for="validationCustom03">Address</label>
                     <input type="text" class="form-control" name="address" id="validationCustom03" placeholder="Address" required>
                     <div class="invalid-feedback">
                         Please provide a valid Address.
                     </div>
                 </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom03">Email</label>
+                    <input type="email" class="form-control" name="email" id="validationCustom03" placeholder="Email" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid Addemailress.
+                    </div>
+                </div>
+
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom04">District</label>
                     <input type="text" class="form-control" name="district" id="validationCustom04" placeholder="District" required>

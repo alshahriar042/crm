@@ -53,11 +53,19 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-3 mb-3">
                     <label for="validationCustom03">Address</label>
                     <input type="text" class="form-control" name="address" value="{{ $lead->address}}" id="validationCustom03" placeholder="Address" required>
                     <div class="invalid-feedback">
                         Please provide a valid Address.
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom03">Email</label>
+                    <input type="email" class="form-control" name="email"  value="{{ $lead->email }}" id="validationCustom03" placeholder="Email" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid Addemailress.
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
